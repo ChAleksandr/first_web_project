@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div align="center" style="padding-top: 20px; padding-bottom: 20px;">
+    <video class="border border-success border-3" width="530" height="300" controls>
+        <source src="{{ url_for('static', filename='img/paper_machine.MOV') }}" type="video/mp4">
+    </video>
+</div>
+<p align="center">
+<!--    <a class="btn btn-primary btn-lg" href="/projects/paper_machine-started">Технологический процесс станка</a>-->
+<!--    <a class="btn btn-primary btn-lg" href="/projects/smart_box-started">Запустить контейнер</a>-->
+</p>
+{% endblock %}

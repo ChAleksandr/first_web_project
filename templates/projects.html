@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+    <h1 align="center" style="color:#198754">Проекты</h1>
+    {% if current_user.is_authenticated %}
+    <div align="center">
+        <a href="project" class="btn btn-success" style="margin-bottom: 1rem;">Добавить проект</a>
+    </div>
+    {% else %}
+    <div align="center">
+        <h1 style="color:#198754">Зарегистрируйтесь или войдите в аккаунт</h1>
+    </div>
+    {% endif %}
+    {% for item in project%}
+    <div class="box_leader" align="center">
+        <div class="box">
+            <a href="{{ item.id }}" class="btn btn-success" role="button" aria-pressed="true">{{ item.name }}</a>
+            <div>
+                {{item.about}}
+            </div>
+            <a href="/project_delete/{{ item.id }}" class="btn btn-danger" >
+                Удалить
+            </a>
+        </div>
+<!--            {% if current_user.is_authenticated and current_user == item.user %}-->
+<!--        <div>-->
+<!--            <a href="/news_delete/{{ item.id }}" class="btn btn-danger" >-->
+<!--                Удалить-->
+<!--            </a>-->
+<!--        </div>-->
+<!--            </div>-->
+<!--{% endif %}-->
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1 align="center">Добавление в таблицу</h1>
+<div class="container">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p align="center">
+                {{ form.name.label }}<br>
+                {{ form.name(class="form-control") }}<br>
+                {% for error in form.name.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <p align="center">
+                {{ form.role.label }}<br>
+                {{ form.role(class="form-control") }}<br>
+                {% for error in form.role.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <p align="center">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+            {{message}}
+        </form>
+</div>
+{% endblock %}
